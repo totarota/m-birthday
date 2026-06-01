@@ -85,64 +85,28 @@
   @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
 
   
-  /* ══ FIXED LAYOUT ══ */
-  html, body {
-    height: 100% !important;
-    overflow: hidden !important;
+  
+
+  /* == SCROLL FIX == */
+  html { height: 100%; }
+  body {
+    min-height: 100vh !important;
+    height: auto !important;
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
   }
   .card, .container {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    height: 100vh !important;
-    max-height: 100vh !important;
-    overflow: hidden !important;
-    padding: 12px 18px 16px !important;
-    gap: 0 !important;
-    box-sizing: border-box !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding-bottom: 40px !important;
   }
-  /* shrink images to always fit */
-  img:not(.bg *), canvas {
-    flex-shrink: 1 !important;
-    min-height: 0 !important;
-    max-height: 30vh !important;
-    width: auto !important;
-    max-width: 82vw !important;
-    object-fit: contain !important;
-    display: block !important;
-  }
-  /* photo grids */
-  .photos, .imgs, .media-row, .btn-row {
-    flex-shrink: 1 !important;
-    min-height: 0 !important;
-  }
-  .photos img, .photo img, .imgs img {
-    max-height: 100% !important;
-    width: 100% !important;
-    object-fit: cover !important;
-  }
-  /* text shrink */
-  .question, .hehe, .title, .name, .no-word {
-    font-size: clamp(1.4rem, 7vw, 2.2rem) !important;
-  }
-  .subtitle, .sub-text, .msg-text, .bottom-text, .out-text, .important, .confession-text {
-    font-size: clamp(0.78rem, 3.5vw, 1rem) !important;
-    line-height: 1.5 !important;
-  }
-  /* nav buttons always at bottom */
-  .next-btn, .back-btn, .nav-btn, .boom-btn, .choice-btn {
+  .next-btn, .back-btn, .nav-btn, .boom-btn {
+    margin-bottom: 20px !important;
     flex-shrink: 0 !important;
-    padding: 10px 28px !important;
-    font-size: 1.3rem !important;
   }
-  .btns, .btn-row, .bottom-row {
-    flex-shrink: 0 !important;
-    margin-top: auto !important;
-  }
-  .divider { margin: 4px 0 !important; }
-  .msg-box, .confession, .bottom-msg { padding: 10px 14px !important; }
-  /* ══ END FIXED ══ */
+  /* == END SCROLL FIX == */
 </style>
 </head>
 <body>
