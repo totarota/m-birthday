@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
@@ -9,144 +10,145 @@
   * { margin:0; padding:0; box-sizing:border-box; }
   html, body { height:100%; width:100%; }
 
-  body {
-    min-height:100vh;
-    background:#050a1a;
-    display:flex; flex-direction:column;
-    align-items:center;
-    overflow-y:scroll;
-    -webkit-overflow-scrolling:touch;
-    position:relative;
-    font-family:'Tajawal',sans-serif; direction:rtl;
-  }
-  body::before {
-    content:''; position:fixed; inset:0;
-    background:
-      radial-gradient(ellipse 80% 60% at 15% 10%, rgba(0,60,180,0.45) 0%,transparent 60%),
-      radial-gradient(ellipse 70% 50% at 85% 85%, rgba(180,0,30,0.4)  0%,transparent 60%),
-      radial-gradient(ellipse 50% 40% at 50% 50%, rgba(0,20,80,0.6)   0%,transparent 70%);
-    z-index:0;
-  }
-  body::after {
-    content:''; position:fixed; inset:0;
-    background:repeating-linear-gradient(180deg,transparent 0px,transparent 3px,rgba(0,0,0,0.15) 3px,rgba(0,0,0,0.15) 4px);
-    z-index:1; pointer-events:none;
-  }
+body {
+min-height:100vh;
+background:#050a1a;
+display:flex; flex-direction:column;
+align-items:center;
+overflow-y:scroll;
+-webkit-overflow-scrolling:touch;
+position:relative;
+font-family:‘Tajawal’,sans-serif; direction:rtl;
+}
+body::before {
+content:’’; position:fixed; inset:0;
+background:
+radial-gradient(ellipse 80% 60% at 15% 10%, rgba(0,60,180,0.45) 0%,transparent 60%),
+radial-gradient(ellipse 70% 50% at 85% 85%, rgba(180,0,30,0.4)  0%,transparent 60%),
+radial-gradient(ellipse 50% 40% at 50% 50%, rgba(0,20,80,0.6)   0%,transparent 70%);
+z-index:0;
+}
+body::after {
+content:’’; position:fixed; inset:0;
+background:repeating-linear-gradient(180deg,transparent 0px,transparent 3px,rgba(0,0,0,0.15) 3px,rgba(0,0,0,0.15) 4px);
+z-index:1; pointer-events:none;
+}
 
-  .star { position:fixed; background:white; border-radius:50%; animation:twinkle ease-in-out infinite; z-index:2; }
-  @keyframes twinkle { 0%,100%{opacity:0.1;} 50%{opacity:0.8;} }
+.star { position:fixed; background:white; border-radius:50%; animation:twinkle ease-in-out infinite; z-index:2; }
+@keyframes twinkle { 0%,100%{opacity:0.1;} 50%{opacity:0.8;} }
 
-  .corner { position:fixed; width:45px; height:45px; border-style:solid; z-index:5; }
-  .corner.tl { top:10px; left:10px;  border-width:2px 0 0 2px; border-color:rgba(0,100,255,0.5); }
-  .corner.tr { top:10px; right:10px; border-width:2px 2px 0 0; border-color:rgba(200,0,40,0.5); }
-  .corner.bl { bottom:10px; left:10px;  border-width:0 0 2px 2px; border-color:rgba(200,0,40,0.5); }
-  .corner.br { bottom:10px; right:10px; border-width:0 2px 2px 0; border-color:rgba(0,100,255,0.5); }
+.corner { position:fixed; width:45px; height:45px; border-style:solid; z-index:5; }
+.corner.tl { top:10px; left:10px;  border-width:2px 0 0 2px; border-color:rgba(0,100,255,0.5); }
+.corner.tr { top:10px; right:10px; border-width:2px 2px 0 0; border-color:rgba(200,0,40,0.5); }
+.corner.bl { bottom:10px; left:10px;  border-width:0 0 2px 2px; border-color:rgba(200,0,40,0.5); }
+.corner.br { bottom:10px; right:10px; border-width:0 2px 2px 0; border-color:rgba(0,100,255,0.5); }
 
-  .card {
-    position:relative; z-index:10;
-    display:flex; flex-direction:column;
-    align-items:center;
-    gap:16px;
-    padding:28px 20px 40px;
-    width:100%;
-  }
+.card {
+position:relative; z-index:10;
+display:flex; flex-direction:column;
+align-items:center;
+gap:16px;
+padding:28px 20px 40px;
+width:100%;
+}
 
-  .title {
-    font-size:clamp(1.5rem,7vw,2rem);
-    font-weight:900; color:#fff; text-align:center;
-    text-shadow:0 0 20px rgba(0,140,255,0.8),0 0 40px rgba(200,0,40,0.4);
-    animation:glow 2.5s ease-in-out infinite;
-  }
-  @keyframes glow {
-    0%,100%{text-shadow:0 0 20px rgba(0,140,255,0.8),0 0 40px rgba(200,0,40,0.4);}
-    50%     {text-shadow:0 0 35px rgba(0,180,255,1),  0 0 60px rgba(220,0,50,0.7);}
-  }
+.title {
+font-size:clamp(1.5rem,7vw,2rem);
+font-weight:900; color:#fff; text-align:center;
+text-shadow:0 0 20px rgba(0,140,255,0.8),0 0 40px rgba(200,0,40,0.4);
+animation:glow 2.5s ease-in-out infinite;
+}
+@keyframes glow {
+0%,100%{text-shadow:0 0 20px rgba(0,140,255,0.8),0 0 40px rgba(200,0,40,0.4);}
+50%     {text-shadow:0 0 35px rgba(0,180,255,1),  0 0 60px rgba(220,0,50,0.7);}
+}
 
-  .cat-wrap { animation:bob 3.5s ease-in-out infinite; position:relative; }
-  @keyframes bob { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);} }
-  .cat-wrap::before {
-    content:''; position:absolute; inset:-8px; border-radius:16px;
-    background:conic-gradient(rgba(0,100,255,0.4),rgba(220,0,40,0.4),rgba(0,200,255,0.3),rgba(0,100,255,0.4));
-    filter:blur(10px); animation:spin 6s linear infinite; z-index:-1;
-  }
-  @keyframes spin { to{transform:rotate(360deg);} }
-  .cat-img {
-    width:min(68vw,240px);
-    border-radius:14px; object-fit:cover; display:block;
-    border:2px solid rgba(255,255,255,0.15);
-  }
+.cat-wrap { animation:bob 3.5s ease-in-out infinite; position:relative; }
+@keyframes bob { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);} }
+.cat-wrap::before {
+content:’’; position:absolute; inset:-8px; border-radius:16px;
+background:conic-gradient(rgba(0,100,255,0.4),rgba(220,0,40,0.4),rgba(0,200,255,0.3),rgba(0,100,255,0.4));
+filter:blur(10px); animation:spin 6s linear infinite; z-index:-1;
+}
+@keyframes spin { to{transform:rotate(360deg);} }
+.cat-img {
+width:min(68vw,240px);
+border-radius:14px; object-fit:cover; display:block;
+border:2px solid rgba(255,255,255,0.15);
+}
 
-  .important {
-    font-size:clamp(1rem,4.5vw,1.2rem);
-    font-weight:900; color:#ffd23a; text-align:center;
-    text-shadow:0 0 15px rgba(255,200,50,0.7);
-    animation:shake 2s ease-in-out infinite;
-  }
-  @keyframes shake { 0%,100%{transform:rotate(0);} 20%{transform:rotate(-1.5deg);} 40%{transform:rotate(1.5deg);} }
+.important {
+font-size:clamp(1rem,4.5vw,1.2rem);
+font-weight:900; color:#ffd23a; text-align:center;
+text-shadow:0 0 15px rgba(255,200,50,0.7);
+animation:shake 2s ease-in-out infinite;
+}
+@keyframes shake { 0%,100%{transform:rotate(0);} 20%{transform:rotate(-1.5deg);} 40%{transform:rotate(1.5deg);} }
 
-  .meow-box {
-    background:rgba(255,255,255,0.07);
-    backdrop-filter:blur(8px);
-    border:1.5px solid rgba(255,255,255,0.12);
-    border-radius:16px;
-    padding:14px;
-    width:100%; max-width:360px;
-    line-height:2; text-align:center;
-    font-size:clamp(0.82rem,3.6vw,0.95rem);
-    color:rgba(255,255,255,0.75);
-    font-family:'Space Mono',monospace;
-    word-break:break-word; direction:ltr;
-  }
-  .ar { font-family:'Tajawal',sans-serif; color:rgba(180,210,255,0.85); }
+.meow-box {
+background:rgba(255,255,255,0.07);
+backdrop-filter:blur(8px);
+border:1.5px solid rgba(255,255,255,0.12);
+border-radius:16px;
+padding:14px;
+width:100%; max-width:360px;
+line-height:2; text-align:center;
+font-size:clamp(0.82rem,3.6vw,0.95rem);
+color:rgba(255,255,255,0.75);
+font-family:‘Space Mono’,monospace;
+word-break:break-word; direction:ltr;
+}
+.ar { font-family:‘Tajawal’,sans-serif; color:rgba(180,210,255,0.85); }
 
-  .divider { width:70px; height:2px; background:linear-gradient(90deg,rgba(0,100,255,0.8),rgba(200,0,40,0.8)); border-radius:2px; }
+.divider { width:70px; height:2px; background:linear-gradient(90deg,rgba(0,100,255,0.8),rgba(200,0,40,0.8)); border-radius:2px; }
 
-  .next-btn {
-    display:inline-flex; align-items:center; gap:10px;
-    padding:13px 36px;
-    background:linear-gradient(135deg,rgba(0,60,180,0.3),rgba(180,0,30,0.3));
-    border:1.5px solid rgba(255,255,255,0.25);
-    border-radius:4px; color:#fff;
-    font-family:'Bebas Neue',sans-serif;
-    font-size:1.5rem; letter-spacing:5px;
-    text-decoration:none;
-    position:relative; overflow:hidden;
-    -webkit-tap-highlight-color:transparent;
-    /* extra bottom space so finger can reach */
-    margin-bottom:30px;
-  }
-  .next-btn::after {
-    content:''; position:absolute; top:-50%; left:-75%;
-    width:50%; height:200%;
-    background:linear-gradient(120deg,transparent,rgba(255,255,255,0.12),transparent);
-    animation:shimmer 3s ease-in-out infinite;
-  }
-  @keyframes shimmer { 0%{left:-75%;} 100%{left:175%;} }
-  .next-btn:active { transform:scale(0.97); }
-  .arrow { display:inline-block; animation:arrow-b 1.5s ease-in-out infinite; }
-  @keyframes arrow-b { 0%,100%{transform:translateX(0);} 50%{transform:translateX(5px);} }
+.next-btn {
+display:inline-flex; align-items:center; gap:10px;
+padding:13px 36px;
+background:linear-gradient(135deg,rgba(0,60,180,0.3),rgba(180,0,30,0.3));
+border:1.5px solid rgba(255,255,255,0.25);
+border-radius:4px; color:#fff;
+font-family:‘Bebas Neue’,sans-serif;
+font-size:1.5rem; letter-spacing:5px;
+text-decoration:none;
+position:relative; overflow:hidden;
+-webkit-tap-highlight-color:transparent;
+/* extra bottom space so finger can reach */
+margin-bottom:30px;
+}
+.next-btn::after {
+content:’’; position:absolute; top:-50%; left:-75%;
+width:50%; height:200%;
+background:linear-gradient(120deg,transparent,rgba(255,255,255,0.12),transparent);
+animation:shimmer 3s ease-in-out infinite;
+}
+@keyframes shimmer { 0%{left:-75%;} 100%{left:175%;} }
+.next-btn:active { transform:scale(0.97); }
+.arrow { display:inline-block; animation:arrow-b 1.5s ease-in-out infinite; }
+@keyframes arrow-b { 0%,100%{transform:translateX(0);} 50%{transform:translateX(5px);} }
 
-  /* == SCROLL FIX == */
-  html { height: 100%; }
-  body {
-    min-height: 100vh !important;
-    height: auto !important;
-    overflow-y: scroll !important;
-    overflow-x: hidden !important;
-    -webkit-overflow-scrolling: touch !important;
-  }
-  .card, .container {
-    height: auto !important;
-    max-height: none !important;
-    overflow: visible !important;
-    padding-bottom: 40px !important;
-  }
-  .next-btn, .back-btn, .nav-btn, .boom-btn {
-    margin-bottom: 20px !important;
-    flex-shrink: 0 !important;
-  }
-  /* == END SCROLL FIX == */
+/* == SCROLL FIX == */
+html { height: 100%; }
+body {
+min-height: 100vh !important;
+height: auto !important;
+overflow-y: scroll !important;
+overflow-x: hidden !important;
+-webkit-overflow-scrolling: touch !important;
+}
+.card, .container {
+height: auto !important;
+max-height: none !important;
+overflow: visible !important;
+padding-bottom: 40px !important;
+}
+.next-btn, .back-btn, .nav-btn, .boom-btn {
+margin-bottom: 20px !important;
+flex-shrink: 0 !important;
+}
+/* == END SCROLL FIX == */
 </style>
+
 </head>
 <body>
 
@@ -168,7 +170,8 @@
 
   <div class="divider"></div>
 
-  <a class="next-btn" href="page6.html">NEXT <span class="arrow">→</span></a>
+<a class="next-btn" href="page6.html">NEXT <span class="arrow">→</span></a>
+
 </div>
 
 <script>
@@ -199,5 +202,6 @@ for(let i=0;i<40;i++) {
   document.body.appendChild(s);
 }
 </script>
+
 </body>
 </html>
