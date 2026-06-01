@@ -212,32 +212,65 @@
     50%      { transform:translateX(5px); }
   }
 
-  /* ── GLOBAL FIT FIX ── */
+  
+  /* ══ FIXED LAYOUT ══ */
+  html, body {
+    height: 100% !important;
+    overflow: hidden !important;
+  }
   .card, .container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: space-between !important;
     height: 100vh !important;
     max-height: 100vh !important;
     overflow: hidden !important;
-    justify-content: center !important;
+    padding: 12px 18px 16px !important;
+    gap: 0 !important;
+    box-sizing: border-box !important;
   }
-  img, canvas {
-    max-height: 28vh !important;
+  /* shrink images to always fit */
+  img:not(.bg *), canvas {
+    flex-shrink: 1 !important;
+    min-height: 0 !important;
+    max-height: 30vh !important;
     width: auto !important;
-    max-width: 80vw !important;
+    max-width: 82vw !important;
     object-fit: contain !important;
+    display: block !important;
   }
-  .photos img, .photo img {
+  /* photo grids */
+  .photos, .imgs, .media-row, .btn-row {
+    flex-shrink: 1 !important;
+    min-height: 0 !important;
+  }
+  .photos img, .photo img, .imgs img {
     max-height: 100% !important;
     width: 100% !important;
+    object-fit: cover !important;
   }
-  .cat-img, .always-img, .cake-img, .ppg-img, .hb-img, .meme-img {
-    max-height: 26vh !important;
-    width: auto !important;
+  /* text shrink */
+  .question, .hehe, .title, .name, .no-word {
+    font-size: clamp(1.4rem, 7vw, 2.2rem) !important;
   }
-  #hb-canvas  { max-height: 26vh !important; width: auto !important; }
-  #m-canvas   { max-height: 16vh !important; width: auto !important; }
-  #meme-canvas{ max-height: 26vh !important; width: auto !important; }
-  .gap-fix { gap: 2vh !important; }
-
+  .subtitle, .sub-text, .msg-text, .bottom-text, .out-text, .important, .confession-text {
+    font-size: clamp(0.78rem, 3.5vw, 1rem) !important;
+    line-height: 1.5 !important;
+  }
+  /* nav buttons always at bottom */
+  .next-btn, .back-btn, .nav-btn, .boom-btn, .choice-btn {
+    flex-shrink: 0 !important;
+    padding: 10px 28px !important;
+    font-size: 1.3rem !important;
+  }
+  .btns, .btn-row, .bottom-row {
+    flex-shrink: 0 !important;
+    margin-top: auto !important;
+  }
+  .divider { margin: 4px 0 !important; }
+  .msg-box, .confession, .bottom-msg { padding: 10px 14px !important; }
+  /* ══ END FIXED ══ */
 </style>
 </head>
 <body>
